@@ -46,6 +46,13 @@ class UserInfo(models.Model):
 
     class Meta:
         db_table = "user_info"
+#Model for User Log
+class UserLog(models.Model):
+    user_id = models.ForeignKey(UserInfo,on_delete = models.CASCADE)
+    action = models.CharField(max_length=30)
+    device_name = models.CharField(max_length=30)
+    class Meta:
+        db_table = "user_log"
 
 class UserNotificationType(models.Model):
     user_info_id = models.ForeignKey(
@@ -65,3 +72,4 @@ class catch_email_temp(models.Model):
 
     class Meta:
         db_table = "catch_email_temp"
+        
